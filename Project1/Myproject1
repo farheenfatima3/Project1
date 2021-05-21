@@ -1,0 +1,47 @@
+var readlineSync=require("readline-sync");
+var chalk=require("chalk");
+var userAns=readlineSync.question(chalk.white("What is your name?"));
+console.log(chalk.blue("Welcome!! Lets start a small quiz",userAns.toUpperCase()));
+var score=0;
+function quiz(question,answer){
+var user=readlineSync.question(question);
+  if (user===questions[i].answer){
+    console.log(chalk.green("Bingo!!Correct answer"));
+    score=score+1;
+  }else{
+    console.log(chalk.bgRed("Oops wrong answer"));
+  }
+  console.log(chalk.bold.red("Your scores are: ",score));
+}
+var questions=[{
+  question:"1.Who invented the light bulb?\na.Thomas Alva Edison\nb.Leonardo da Vinci\nc.Galileo Galilei\nd.Nikola Tesla: ",
+  answer:"a"
+  },
+{
+  question:"2.What is the name of the biggest planet in our solar system?\na.Venus\nb.Mars\nc.Jupiter\nd.Uranus: ",
+  answer:"c"
+},
+{
+  question:"3.Who invented Telephone?\na.Henry Ford\nb.Archimedes\nc.Benjamin Franklin\nd.Alexander Graham Bell: ",
+  answer:"d"
+},
+{
+  question:"4.Which is the smallest planet in our solar system?\na.Mercury\nb.Earth\nc.Neptune\nd.Mars: ",
+  answer:"a"
+},
+{
+  question:"5.Who invented printing press?\na.Nicolas Appert\nb.Johannes Gutenberg\nc.tabitha babbit\nd.Leo baekeland; ",
+  answer:"b"
+},
+{
+  question:"6.The largest 4 digit number is?\na.1000\nb.1111\nc.9999\nd.7894: ",
+  answer:"c"
+}
+]
+
+for (i=0;i<questions.length;i++){
+  current=questions[i]
+  quiz(current.question,current.answer)
+}
+
+console.log(chalk.bold.bgBlack("Final scores: ",score))
